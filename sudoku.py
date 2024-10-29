@@ -65,7 +65,7 @@ def buscarCeldaV(tablero):
                 return fila, col
     return None
 
-def generarTablero(solucion,fila,col):
+def generarTablero(solucion):
     pos = buscarCeldaV(solucion)
     if not pos:
         return True
@@ -77,7 +77,7 @@ def generarTablero(solucion,fila,col):
       if validarTablero(solucion, fila, col, num):
           solucion[fila, col] = num
 
-          if generarTablero(solucion,fila,col):
+          if generarTablero(solucion):
               return True
 
           solucion[fila, col] = 0
@@ -87,7 +87,7 @@ def generarTablero(solucion,fila,col):
 solucion = np.zeros((9, 9), dtype=int)
 tablero = np.zeros((9, 9), dtype=int)
 
-generarTablero(solucion,-1,-1)
+generarTablero(solucion)
 numMostrados = random.randint(20, 30)#me da la cantidad de numeros visibles en el tablero
 
 #mostrar solo unos numeros de la solucion
